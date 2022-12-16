@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/inloggebruikersnaam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Gebruikersnaam"
+        android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:id="@+id/inlogwachtwoord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Wachtwoord"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/inloggebruikersnaam"/>
+
+    <Button
+        android:id="@+id/inlogbtninloggen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Inloggen"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/inlogwachtwoord"/>
+
+    <Button
+        android:id="@+id/inlogregiserbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Maak account aan"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/inlogbtninloggen"/>
+
+</RelativeLayout>

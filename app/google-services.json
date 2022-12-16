@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "140120129801",
+    "project_id": "kbssrecupapp",
+    "storage_bucket": "kbssrecupapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140120129801:android:aa510d857d2327366ed3d8",
+        "android_client_info": {
+          "package_name": "com.example.kbss_recupapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140120129801-b99ebsb6kvu02d3gho1vqngp43el980u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKYiT0vcyMVZ4xI9BqfT3PsBe5OjVKPTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140120129801-b99ebsb6kvu02d3gho1vqngp43el980u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
