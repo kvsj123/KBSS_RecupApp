@@ -2,9 +2,14 @@ package com.example.kbss_recupapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -38,8 +43,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         email = (EditText) findViewById(R.id.inloggebruikersnaam);
         wachtwoord = (EditText) findViewById(R.id.inlogwachtwoord);
-
+        wachtwoord.setTransformationMethod(PasswordTransformationMethod.getInstance());
         mAuth = FirebaseAuth.getInstance();
+
+
+        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            // permission not granted, request permission
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
+        } else {
+            // permission already granted
+            // proceed with your code
+        }
     }
 
     @Override
