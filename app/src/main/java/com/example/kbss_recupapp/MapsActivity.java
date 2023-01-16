@@ -128,11 +128,7 @@ public class MapsActivity extends AppCompatActivity implements PermissionsListen
                 if (isGranted) {
                     openCamera();
                 } else {
-                    // Explain to the user that the feature is unavailable because the
-                    // feature requires a permission that the user has denied. At the
-                    // same time, respect the user's decision. Don't link to system
-                    // settings in an effort to convince the user to change their
-                    // decision.
+
                 }
             });
 
@@ -144,54 +140,20 @@ public class MapsActivity extends AppCompatActivity implements PermissionsListen
         super.onCreate(savedInstanceState);
 
 
-// Mapbox access token is configured here. This needs to be called either in your application
-// object or in the same activity which contains the mapview.
+
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
 
-// This contains the MapView in XML and needs to be called after the access token is configured.
+
         setContentView(R.layout.activity_maps);
 
-        //button_cam = (Button) findViewById(R.id.button_cam);
+
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
 
 
-
-
-
-
-
-
-
         Activity context = this;
 
-
-
-      /*  button_cam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                if (ContextCompat.checkSelfPermission(
-                        context, Manifest.permission.CAMERA) ==
-                        PackageManager.PERMISSION_GRANTED) {
-                    // You can use the API that requires the permission.
-                    openCamera();
-                } else {
-                    // You can directly ask for the permission.
-                    // The registered ActivityResultCallback gets the result of this request.
-                    requestPermissionLauncher.launch(
-                            Manifest.permission.CAMERA);
-                }
-
-
-            }
-
-
-        });
-
-       */
     }
 
     @Override
@@ -330,18 +292,15 @@ public class MapsActivity extends AppCompatActivity implements PermissionsListen
 
             mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mapbox/cjf4m44iw0uza2spb3q0a7s41")
 
-                    // Add the SymbolLayer icon image to the map style
+
                     .withImage(ICON_ID, BitmapFactory.decodeResource(
                             MapsActivity.this.getResources(), R.drawable.red_marker))
 
-                    // Adding a GeoJson source for the SymbolLayer icons.
+
                     .withSource(new GeoJsonSource(SOURCE_ID,
                             FeatureCollection.fromFeatures(symbolLayerIconFeatureList)))
 
-                    // Adding the actual SymbolLayer to the map style. An offset is added that the bottom of the red
-                    // marker icon gets fixed to the coordinate, rather than the middle of the icon being fixed to
-                    // the coordinate point. This is offset is not always needed and is dependent on the image
-                    // that you use for the SymbolLayer icon.
+
                     .withLayer(new SymbolLayer(LAYER_ID, SOURCE_ID)
                             .withProperties(
                                     iconImage(ICON_ID),
@@ -366,31 +325,29 @@ public class MapsActivity extends AppCompatActivity implements PermissionsListen
 
     @SuppressWarnings( {"MissingPermission"})
     private void enableLocationComponent(@NonNull Style loadedMapStyle) {
-// Check if permissions are enabled and if not request
+
         if (PermissionsManager.areLocationPermissionsGranted(this)) {
 
-// Enable the most basic pulsing styling by ONLY using
-// the `.pulseEnabled()` method
             LocationComponentOptions customLocationComponentOptions = LocationComponentOptions.builder(this)
                     .pulseEnabled(true)
                     .build();
 
-// Get an instance of the component
+
             LocationComponent locationComponent = mapboxMap.getLocationComponent();
 
-// Activate with options
+
             locationComponent.activateLocationComponent(
                     LocationComponentActivationOptions.builder(this, loadedMapStyle)
                             .locationComponentOptions(customLocationComponentOptions)
                             .build());
 
-// Enable to make component visible
+
             locationComponent.setLocationComponentEnabled(true);
 
-// Set the component's camera mode
+
             locationComponent.setCameraMode(CameraMode.TRACKING);
 
-// Set the component's render mode
+
             locationComponent.setRenderMode(RenderMode.NORMAL);
         } else {
             permissionsManager = new PermissionsManager(this);
@@ -405,12 +362,10 @@ public class MapsActivity extends AppCompatActivity implements PermissionsListen
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 1) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // permission granted
-                // proceed with your code
+
                 enableLocationComponent(mapboxMap.getStyle());
             } else {
-                // permission denied
-                // show an explanation or disable the feature that requires this permission
+
             }
         }
         permissionsManager.onRequestPermissionsResult(requestCode, permissions, grantResults);

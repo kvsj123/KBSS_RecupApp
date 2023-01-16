@@ -70,13 +70,9 @@ public class MarkerFormActivity extends AppCompatActivity implements View.OnClic
     private ActivityResultLauncher<String> requestPermissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
                 if (isGranted) {
-                   // dispatchTakePictureIntent();
+
                 } else {
-                    // Explain to the user that the feature is unavailable because the
-                    // feature requires a permission that the user has denied. At the
-                    // same time, respect the user's decision. Don't link to system
-                    // settings in an effort to convince the user to change their
-                    // decision.
+
                 }
             });
 
@@ -116,12 +112,11 @@ public class MarkerFormActivity extends AppCompatActivity implements View.OnClic
                 if (ContextCompat.checkSelfPermission(
                         MarkerFormActivity.this, Manifest.permission.CAMERA) ==
                         PackageManager.PERMISSION_GRANTED) {
-                    // You can use the API that requires the permission.
+
                     Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                    startActivityForResult(cameraIntent,REUEST_CODE);
                 } else {
-                    // You can directly ask for the permission.
-                    // The registered ActivityResultCallback gets the result of this request.
+
                     requestPermissionLauncher.launch(
                             Manifest.permission.CAMERA);
                 }
@@ -170,7 +165,7 @@ public class MarkerFormActivity extends AppCompatActivity implements View.OnClic
 
 
 
-                                  // Get the URL of the uploaded image
+
 
 
     Marker marker = new Marker(afvalN, afvalB, "", latitude, longitude);

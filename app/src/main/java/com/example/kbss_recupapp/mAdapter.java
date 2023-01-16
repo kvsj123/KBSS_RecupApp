@@ -37,9 +37,9 @@ public class mAdapter extends RecyclerView.Adapter<mAdapter.MyViewHolder> {
 
     Context context;
 
-    //ArrayList<Marker> list;
+
     Dictionary<String,Marker> list;
-    //ArrayList<String> keys;
+
 
 
 

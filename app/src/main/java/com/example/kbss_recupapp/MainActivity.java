@@ -49,11 +49,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
         if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            // permission not granted, request permission
+
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
         } else {
-            // permission already granted
-            // proceed with your code
+
         }
     }
 

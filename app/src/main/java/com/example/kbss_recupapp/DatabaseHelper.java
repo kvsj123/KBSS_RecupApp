@@ -37,7 +37,7 @@ public class DatabaseHelper {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle error
+
             }
         });
     }
